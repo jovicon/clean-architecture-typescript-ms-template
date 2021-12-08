@@ -2,9 +2,9 @@
  * Required External Modules
  */
 import express from 'express';
-import listEndpoints from 'express-list-endpoints';
+import listEndpoints, { Endpoint } from 'express-list-endpoints';
 import { v1Router } from './api/v1';
-import { LoggerFactoryMethod } from '../../utils/logger/patterns/FactoryMethod';
+import { LoggerFactoryMethod } from '../../utils/logger';
 import { UniqueEntityID } from '../../domain/UniqueEntityID';
 
 interface ServerEnvironment {
@@ -12,14 +12,14 @@ interface ServerEnvironment {
   PATH_BASE_MS: string;
 }
 
-const server = (env: ServerEnvironment) => {
+const server = (env: ServerEnvironment): Express.Application => {
   /**
    * App Variables
    */
   const { PORT, PATH_BASE_MS } = env;
   const app = express();
   const id = new UniqueEntityID();
-  const logger = new LoggerFactoryMethod().create(id);
+  const logger = LoggerFactoryMethod.create(id);
 
   /**
    * App Configuration
@@ -38,7 +38,7 @@ const server = (env: ServerEnvironment) => {
     logger.info('|------------------------------------------------------------------|');
     logger.info('| Routes Enabled');
     logger.info('|------------------------------------------------------------------|');
-    listEndpoints(app).forEach((route: any, index: number) => {
+    listEndpoints(app).forEach((route: Endpoint, index: number) => {
       logger.info(`| ${index + 1}.- ${JSON.stringify(route)}`);
     });
     logger.info('|------------------------------------------------------------------|\n');

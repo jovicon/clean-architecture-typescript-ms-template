@@ -1,5 +1,3 @@
-export { LoggerFactoryMethod } from './patterns/FactoryMethod';
-
 export interface Logger {
   error: (message: string) => void;
   warn: (message: string) => void;

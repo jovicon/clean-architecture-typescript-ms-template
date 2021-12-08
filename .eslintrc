@@ -21,6 +21,14 @@
     "prettier/prettier": "error",
     "import/prefer-default-export": "off"
   },
+  "overrides": [
+    {
+      "files": ["*.logger.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
   "env": {
     "browser": true
   }
