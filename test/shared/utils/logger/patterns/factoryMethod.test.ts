@@ -1,5 +1,5 @@
 import { UniqueEntityID } from '../../../../../src/shared/domain/UniqueEntityID';
-import { LoggerFactoryMethod } from '../../../../../src/shared/utils/logger/';
+import { LoggerFactoryMethod } from '../../../../../src/shared/utils/logger';
 
 describe('Test Shared Utils Logger Patterns', () => {
   it('Logger should create an instance', () => {
