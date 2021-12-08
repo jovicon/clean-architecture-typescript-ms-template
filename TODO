@@ -30,23 +30,10 @@ TODO CONTROL
 
     [] Docker
       [x] Dockerfile
-          - sudo docker build -t wellness/advance:latest .
-          - sudo docker container run -idt -p 80:3000  wellness/advance:latest
+          - sudo docker build -t cams/template:latest .
+          - sudo docker container run -idt -p 80:3000  cams/template:latest
 
       [] multi-stage
-
-    [] Swagger
-      [x] Get health check
-      [] Get advance/colaborator/:id
-      [] Get advance/colaborator/:id
-
-    [] Jenkins
-      [x] Jenkinsfiles
-        - Preguntar pato que se debe hacer con los jenkins files
-          Jenkinsfile-ms
-          jenkinsfile_ms.groovy
-
-          * Nota se queda el Groovy, pero confirmar con patito
 
     [] Github Env Vars
 
@@ -76,7 +63,6 @@ TODO CONTROL
 
     [] Route definition
       [x] Get health check
-      [] Get advance/colaborator/:id
 
     [] Error handling
 
