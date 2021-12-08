@@ -50,7 +50,7 @@
     "build-ts": "tsc -p tsconfig.json",
     "prestart": "npm run build",
     "start": "npm run serve",
-    "serve": "node ./dist/src/index.js"
+    "serve": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
