@@ -3,6 +3,6 @@ import { Identifier } from './Identifier';
 
 export class UniqueEntityID extends Identifier<string | number> {
   constructor(id?: string) {
-    super(id ? id : uuidv4());
+    super(id || uuidv4());
   }
 }

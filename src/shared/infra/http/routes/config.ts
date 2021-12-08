@@ -1,3 +1,1 @@
-export const config = () => {
-  return { message: 'config is here' };
-};
+export const config = (): { message: string } => ({ message: 'config is here' });

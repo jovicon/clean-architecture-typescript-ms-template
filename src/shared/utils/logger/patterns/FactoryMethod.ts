@@ -1,4 +1,4 @@
-import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
+import { UniqueEntityID } from '../../../domain/UniqueEntityID';
 import { Logger } from '../Logger';
 
 abstract class LoggerCreator {

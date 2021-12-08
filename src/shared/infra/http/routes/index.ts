@@ -2,6 +2,7 @@ import express from 'express';
 import { config } from './config';
 import { LoggerFactoryMethod } from '../../../utils/logger/Logger';
 import { UniqueEntityID } from '../../../domain/UniqueEntityID';
+
 const baseRouter = express.Router();
 
 baseRouter.get('/health', (_req, res) => {

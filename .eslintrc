@@ -8,16 +8,19 @@
     },
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "plugins": ["eslint-plugin-prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "eslint-config-prettier",
-    "eslint-config-prettier/@typescript-eslint",
-    "airbnb-base"
+    "airbnb-base",
+    "airbnb-typescript/base"
   ],
-  "rules": { "prettier/prettier": "error" },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off"
+  },
   "env": {
     "browser": true
   }
