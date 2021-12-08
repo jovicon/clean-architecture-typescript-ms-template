@@ -1,0 +1,102 @@
+# ==================================
+# Swagger init
+swagger: '2.0'
+info:
+  title: wellness - advance - ${env}
+  description: 'wellness - advance - ${env}'
+  version: 0.9.0
+host: 'localhost:3000'
+basePath: ''
+tags:
+  - name: wellness
+    description: Endpoints for wellness
+schemes:
+  - http
+securityDefinitions:
+  cognito-authorizer:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-amazon-apigateway-authtype: cognito_user_pools
+    x-amazon-apigateway-authorizer:
+      type: cognito_user_pools
+      providerARNs:
+        - arn:aws:cognito-idp:${aws_region}:${aws_account_id}:userpool/${cognito_id}
+x-amazon-apigateway-request-validators:
+  all:
+    validateRequestBody: true
+    validateRequestParameters: true
+  params-only:
+    validateRequestBody: false
+    validateRequestParameters: true
+
+# ==================================
+# Here is the CORS-handler code :
+x-amazon-apigateway-gateway-responses:
+  'DEFAULT_4XX':
+    responseParameters:
+      gatewayresponse.header.Access-Control-Allow-Methods: "'GET,OPTIONS,PUT,DELETE,POST'"
+      gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+  'DEFAULT_5XX':
+    responseParameters:
+      gatewayresponse.header.Access-Control-Allow-Methods: "'GET,OPTIONS,PUT,DELETE,POST'"
+      gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+      gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+
+# ==================================
+# Paths
+paths:
+  /health:
+    get:
+      tags:
+        - Healthcheck
+      description: Healthcheck
+      operationId: Health
+      produces:
+        - application/json
+      x-amazon-apigateway-auth:
+        type: none
+      responses:
+        '200':
+          description: successfully
+          headers:
+            Access-Control-Allow-Headers:
+              type: 'string'
+            Access-Control-Allow-Methods:
+              type: 'string'
+            Access-Control-Allow-Origin:
+              type: 'string'
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: '200'
+        requestParameters:
+          integration.request.header.ApiGatewayAuth: "'${alb_password}'"
+        uri: https://${alb_url}/advance/health
+        httpMethod: POST
+        type: http_proxy
+
+# ==================================
+# Descriptions of common responses
+responses:
+  NotFound:
+    description: The specified resource was not found
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Error'
+
+# ==================================
+definitions:
+  # Schema for error response body
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
+    required:
+      - message
+# ==================================

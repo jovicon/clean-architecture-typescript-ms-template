@@ -1,0 +1,86 @@
+TODO CONTROL
+
+  [] Docs
+    [] Postman
+    [] Confluence
+
+  [] Config
+    [x] Husky config
+      - npm install husky -D
+      - npm set-script prepare "husky install"
+      - npm run prepare
+      - npx husky add .husky/pre-commit "npm run lint && npm run test"
+      - git add .husky/pre-commit
+      - git commit -m "Keep calm and commit"
+
+    [x] Express installation
+      [x] config
+        - sudo npm i express express-list-endpoints express-swagger-generator 
+        - sudo npm i -D @types/express @types/express-list-endpoints
+
+      [x] health check
+
+    [x] Dotenv
+      [x] init config
+        - sudo npm i dotenv
+        - sudo npm i -D @types/dotenv
+      
+      [x] Singleton config
+        Singleton is not a good idea
+
+    [] Docker
+      [x] Dockerfile
+          - sudo docker build -t wellness/advance:latest .
+          - sudo docker container run -idt -p 80:3000  wellness/advance:latest
+
+      [] multi-stage
+
+    [] Swagger
+      [x] Get health check
+      [] Get advance/colaborator/:id
+      [] Get advance/colaborator/:id
+
+    [] Jenkins
+      [x] Jenkinsfiles
+        - Preguntar pato que se debe hacer con los jenkins files
+          Jenkinsfile-ms
+          jenkinsfile_ms.groovy
+
+          * Nota se queda el Groovy, pero confirmar con patito
+
+    [] Github Env Vars
+
+    [x] SonarCloud
+
+    [] Dependency inversion - Dependency injection
+
+  [] Code
+
+    [] Tests
+      [] Code coverage
+      [] Unit test
+
+      [] Server test
+        - sudo npm i -D supertest
+        - sudo npm i -D @types/supertest
+
+
+    [] Logging
+      [x] Logs con Factory method
+        npm i uuid
+        npm i -D @types/uuid
+
+      [] Logs con Winston
+        - https://www.npmjs.com/package/winston
+
+
+    [] Route definition
+      [x] Get health check
+      [] Get advance/colaborator/:id
+
+    [] Error handling
+
+    [] DB connection
+      [] MongoDB - Repository pattern (DTO)
+
+    [] Domain validation

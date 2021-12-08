@@ -1,0 +1,84 @@
+{
+  "name": "clean-typescript-template",
+  "version": "1.0.0",
+  "description": "This is a ready to use typescript template inspired on clean code book",
+  "main": "src/index.ts",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^6.0.0",
+    "express-swagger-generator": "^1.1.17",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/express-list-endpoints": "^6.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.1",
+    "@types/supertest": "^2.0.11",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "jest-sonar": "^0.2.12",
+    "jest-sonar-reporter": "^2.0.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "prettier-eslint": "^13.0.0",
+    "prettier-eslint-cli": "^5.0.1",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "dev": "nodemon --config nodemon.json src/index.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/index.ts",
+    "prepare": "husky install",
+    "format": "prettier-eslint --eslint-config-path ./.eslintrc.yml --write '**/*.ts'",
+    "lint": "npx prettier --c ./src --config .prettierrc --write",
+    "test": "jest --forceExit --coverage --verbose --detectOpenHandles --silent",
+    "build": "npm run lint && npm run build-ts",
+    "build-ts": "tsc -p tsconfig.json",
+    "prestart": "npm run build",
+    "start": "npm run serve",
+    "serve": "node ./dist/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jovicon/clean-typescript-template.git"
+  },
+  "keywords": [
+    "template",
+    "typescript",
+    "clean-code",
+    "clean",
+    "ready-to-use"
+  ],
+  "author": "José Contreras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jovicon/clean-typescript-template/issues"
+  },
+  "homepage": "https://github.com/jovicon/clean-typescript-template#readme",
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportFile": "test-reporter.xml",
+    "indent": 2,
+    "env": {
+      "test": {
+        "reportPath": "reports_test"
+      }
+    }
+  }
+}
