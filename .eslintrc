@@ -1,0 +1,24 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": false
+    },
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier",
+    "eslint-config-prettier/@typescript-eslint",
+    "airbnb-base"
+  ],
+  "rules": { "prettier/prettier": "error" },
+  "env": {
+    "browser": true
+  }
+}

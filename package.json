@@ -44,7 +44,8 @@
     "dev:debug": "nodemon --config nodemon.json --inspect-brk src/index.ts",
     "prepare": "husky install",
     "format": "prettier-eslint --eslint-config-path ./.eslintrc.yml --write '**/*.ts'",
-    "lint": "npx prettier --c ./src --config .prettierrc --write",
+    "lint": "eslint && npx prettier --c ./src --config .prettierrc --write",
+    "prettier": "npx prettier --c ./src --config .prettierrc --write",
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles --silent",
     "build": "npm run lint && npm run build-ts",
     "build-ts": "tsc -p tsconfig.json",
@@ -54,13 +55,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jovicon/clean-typescript-template.git"
+    "url": "git+https://github.com/jovicon/clean-architecture-typescript-ms-template.git"
   },
   "keywords": [
     "template",
     "typescript",
     "clean-code",
     "clean",
+    "clean-architecture",
+    "microservice",
     "ready-to-use"
   ],
   "author": "José Contreras",
@@ -70,7 +73,15 @@
   },
   "homepage": "https://github.com/jovicon/clean-typescript-template#readme",
   "jest": {
-    "testResultsProcessor": "jest-sonar-reporter"
+    "testResultsProcessor": "jest-sonar-reporter",
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
   },
   "jestSonar": {
     "reportFile": "test-reporter.xml",
