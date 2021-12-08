@@ -3,6 +3,7 @@
  */
 import express from 'express';
 import listEndpoints, { Endpoint } from 'express-list-endpoints';
+import { Server } from 'http';
 import { v1Router } from './api/v1';
 import { LoggerFactoryMethod } from '../../utils/logger';
 import { UniqueEntityID } from '../../domain/UniqueEntityID';
@@ -12,7 +13,7 @@ interface ServerEnvironment {
   PATH_BASE_MS: string;
 }
 
-const server = (env: ServerEnvironment): Express.Application => {
+const server = (env: ServerEnvironment): Server => {
   /**
    * App Variables
    */

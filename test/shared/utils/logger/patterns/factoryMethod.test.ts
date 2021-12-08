@@ -1,16 +1,16 @@
 import { UniqueEntityID } from '../../../../../src/shared/domain/UniqueEntityID';
-import { LoggerFactoryMethod } from '../../../../../src/shared/utils/logger/patterns/FactoryMethod';
+import { LoggerFactoryMethod } from '../../../../../src/shared/utils/logger/';
 
 describe('Test Shared Utils Logger Patterns', () => {
   it('Logger should create an instance', () => {
     const id = new UniqueEntityID();
-    const logger = new LoggerFactoryMethod().create(id);
-    expect(logger.id).not.toBeNull();
+    const logger = LoggerFactoryMethod.create(id);
+    expect(logger).not.toBeNull();
   });
 
   it('Logger should console log an error', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'error');
 
@@ -22,7 +22,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an warn', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'warn');
 
@@ -34,7 +34,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an info', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'info');
 
@@ -46,7 +46,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an http', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'http');
 
@@ -58,7 +58,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an verbose', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'verbose');
 
@@ -70,7 +70,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an debug', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'debug');
 
@@ -82,7 +82,7 @@ describe('Test Shared Utils Logger Patterns', () => {
 
   it('Logger should console log an silly', () => {
     const id = new UniqueEntityID();
-    const log = new LoggerFactoryMethod().create(id);
+    const log = LoggerFactoryMethod.create(id);
 
     const logSpy = jest.spyOn(log, 'silly');
 
