@@ -4,8 +4,8 @@
 import express from 'express';
 import listEndpoints, { Endpoint } from 'express-list-endpoints';
 import { Server } from 'http';
+import { LoggerFactoryMethod } from 'shared_utils';
 import { v1Router } from './api/v1';
-import { LoggerFactoryMethod } from '../../utils/logger';
 import { UniqueEntityID } from '../../domain/UniqueEntityID';
 
 interface ServerEnvironment {

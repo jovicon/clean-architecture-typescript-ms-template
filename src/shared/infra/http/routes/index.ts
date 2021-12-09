@@ -1,6 +1,6 @@
 import express from 'express';
+import { LoggerFactoryMethod } from 'shared_utils';
 import { config } from './config';
-import { LoggerFactoryMethod } from '../../../utils/logger';
 import { UniqueEntityID } from '../../../domain/UniqueEntityID';
 
 const baseRouter = express.Router();
